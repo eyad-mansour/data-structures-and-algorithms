@@ -134,9 +134,7 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  for (let i = 0; i < recipe.length; i++) {
-    result.push();
-  }
+  slice(-1);
   return result;
 };
 
