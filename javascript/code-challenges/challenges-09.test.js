@@ -155,10 +155,7 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
-// let boolean = false;
-//   arr.forEach((letter) => {
-//     return Object.values(a).includes(character) &&Object.keys(a).includes("children")? (boolean = true): 0;
-//     return boolean;
+
 const hasChildrenValues = (arr, character) => {
   return arr.values(character).find((children) => {
     return children.character === children && children.character.length > 0
