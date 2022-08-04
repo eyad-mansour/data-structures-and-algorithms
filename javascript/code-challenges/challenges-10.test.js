@@ -172,7 +172,7 @@ const errands = [
 
 const howManyTreats = (arr) => {
   let amount = 0;
-
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
