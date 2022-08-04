@@ -55,20 +55,13 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-  // return charArray.sort((a, b) => {
-  //   b.children.indexOf(b - a) - a.children.indexOf(b - a);
-  // });
-  let sort = charArray.sort((a, b) => {
-    if (a.children.length === b.children.length) {
-      if (a.children > b.children) {
-        return -1;
-      }
-      return 1;
-    }
-    return a.children - b.children;
-  });
-
-  return sort;
+  return charArray.sort((el1, el2) =>
+    el1.children.length === el2.children.length
+      ? el1.name > el2.name
+        ? 1
+        : -1
+      : el1.children.length - el2.children.length
+  );
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -117,8 +110,11 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let regx = /^[A-Z]*$/g.match(str);
-  regx ? regx : null;
+  if (str.length === 0) {
+    return [];
+  } else {
+    return str.match(/[A-Z][a-z]*/g) || [];
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,9 +124,9 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  const array = [];
-  array.push(/^[A-J]/.match(arr));
-  return array;
+  const regx = /^[A-J]/;
+  let solu = arr.filter((city) => regx.test(city));
+  return solu;
 };
 
 /* ------------------------------------------------------------------------------------------------
