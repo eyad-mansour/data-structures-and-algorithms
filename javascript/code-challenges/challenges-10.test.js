@@ -158,6 +158,7 @@ const errands = [
 
 const howManyTreats = (arr) => {
   let amount = 0;
+  // need to push it again so i can fix the curly braces
 };
 
 /* ------------------------------------------------------------------------------------------------
