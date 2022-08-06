@@ -157,12 +157,19 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
+  // let amount = 0;
+  // let try_toPush = 1;
   let amount = 0;
-  let try_toPush = 1;
-  try_toPush = 1;
-  try_toPush = 3;
-  try_toPush = 2;
-  // need to push it again so i can fix the curly braces
+  arr.forEach((val) => {
+    if (val.store === "Pet store") {
+      val.items.forEach((val2) => {
+        if (val2.name === "Treats") {
+          amount = val2.quantity;
+        }
+      });
+    }
+  });
+  return amount;
 };
 
 /* ------------------------------------------------------------------------------------------------

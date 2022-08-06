@@ -1,5 +1,6 @@
 "use strict";
 
+const { empty } = require("cheerio/lib/api/manipulation");
 const { map } = require("cheerio/lib/api/traversing");
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,14 +61,13 @@ const sortByChildren = (charArray) => {
   // });
   let sort = charArray.sort((a, b) => {
     if (a.children.length === b.children.length) {
-      if (a.children > b.children) {
-        return -1;
+      if (a.name > b.name) {
+        return 1;
       }
-      return 1;
+      return -1;
     }
-    return a.children - b.children;
+    return a.children.length - b.children.length;
   });
-
   return sort;
 };
 /* ------------------------------------------------------------------------------------------------
@@ -117,8 +117,9 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let regx = /^[A-Z]*$/g.match(str);
-  regx ? regx : null;
+  let emptyarr = [];
+  let regx = /(\b[A-Z])(\w)*/g;
+  return str.match(regx) ? str.match(regx) : emptyarr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,9 +129,11 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  const array = [];
-  array.push(/^[A-J]/.match(arr));
-  return array;
+  // const array = [];
+  // array.push(/^[A-J]/.match(arr));
+  // return array;
+  let a = arr.filter((i) => /^[A-J]/g.test(i));
+  return a;
 };
 
 /* ------------------------------------------------------------------------------------------------
