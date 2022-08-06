@@ -160,6 +160,7 @@ const howManyTreats = (arr) => {
   // let amount = 0;
   // let try_toPush = 1;
   let amount = 0;
+
   arr.forEach((val) => {
     if (val.store === "Pet store") {
       val.items.forEach((val2) => {
@@ -170,6 +171,7 @@ const howManyTreats = (arr) => {
     }
   });
   return amount;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
