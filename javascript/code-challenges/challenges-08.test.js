@@ -56,6 +56,7 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
+<<<<<<< HEAD
   // return charArray.sort((a, b) => {
   //   b.children.indexOf(b - a) - a.children.indexOf(b - a);
   // });
@@ -69,6 +70,15 @@ const sortByChildren = (charArray) => {
     return a.children.length - b.children.length;
   });
   return sort;
+=======
+  return charArray.sort((el1, el2) =>
+    el1.children.length === el2.children.length
+      ? el1.name > el2.name
+        ? 1
+        : -1
+      : el1.children.length - el2.children.length
+  );
+>>>>>>> ae92a61261f87dfd0444d9fc3c32da00c66e0127
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -117,9 +127,17 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
+<<<<<<< HEAD
   let emptyarr = [];
   let regx = /(\b[A-Z])(\w)*/g;
   return str.match(regx) ? str.match(regx) : emptyarr;
+=======
+  if (str.length === 0) {
+    return [];
+  } else {
+    return str.match(/[A-Z][a-z]*/g) || [];
+  }
+>>>>>>> ae92a61261f87dfd0444d9fc3c32da00c66e0127
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,11 +147,17 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
+<<<<<<< HEAD
   // const array = [];
   // array.push(/^[A-J]/.match(arr));
   // return array;
   let a = arr.filter((i) => /^[A-J]/g.test(i));
   return a;
+=======
+  const regx = /^[A-J]/;
+  let solu = arr.filter((city) => regx.test(city));
+  return solu;
+>>>>>>> ae92a61261f87dfd0444d9fc3c32da00c66e0127
 };
 
 /* ------------------------------------------------------------------------------------------------
